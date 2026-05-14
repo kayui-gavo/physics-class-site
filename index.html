@@ -804,7 +804,7 @@
       noticeText: '课程日程有变动时会在这里更新。当前可查看最新课程安排通知。'
     };
 
-    const defaultConfigVersion = '2026-05-14-homework-03-answers';
+    const defaultConfigVersion = '2026-05-15-lesson-04-recording';
 
     const defaultCourses = [
       {
@@ -850,8 +850,11 @@
         no: 4,
         unit: '力学',
         title: '圆周运动、惯性力与单振动',
+        date: '2026-05-14',
         summary: '等速圆周运动、向心力、惯性力、弹簧振子、单摆和单振动能量。',
-        topics: ['动量', '碰撞', '圆周运动', '惯性力', '单振动']
+        topics: ['动量', '碰撞', '圆周运动', '惯性力', '单振动'],
+        video: 'https://meeting.tencent.com/crm/K0qMvRXG71',
+        videoPassword: 'TBBT'
       },
       {
         no: 5,
@@ -1024,6 +1027,7 @@
 
         const topics = course.topics.map((topic) => `<span class="topic">${topic}</span>`).join('');
         const date = course.date ? `<span class="date">更新日期：${course.date}</span>` : '<span class="date">资料待上传</span>';
+        const videoPassword = course.videoPassword ? `<span class="date">录播密码：${course.videoPassword}</span>` : '';
 
         return `
           <article class="course-card">
@@ -1031,6 +1035,7 @@
               <div class="course-meta">
                 <span class="badge">${course.unit} ${String(course.no).padStart(2, '0')}</span>
                 ${date}
+                ${videoPassword}
               </div>
               <h3>第${course.no}讲：${course.title}</h3>
               <p>${course.summary}</p>
